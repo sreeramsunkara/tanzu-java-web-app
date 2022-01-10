@@ -1,0 +1,22 @@
+accelerator:
+  displayName: Demo-java-web-app
+  description: Demo-java-web-app
+  iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
+  tags: 
+  - java
+  - spring
+  options:
+  - name: deploymentType
+    inputType: select
+    choices:
+    - value: none
+      text: Skip Kubernetes deployment
+    - value: k8s-simple
+      text: Kubernetes deployment and service
+    - value: knative
+      text: Knative service
+    defaultValue: k8s-simple
+    required: true
+engine:
+  include:
+  - '**'
