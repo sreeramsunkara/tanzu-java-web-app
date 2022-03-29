@@ -12,3 +12,4 @@ spec:
       url: https://github.com/sreeramsunkara/tanzu-java-web-app
       ref:
         branch: main
+  gitops_repository: ssh://git@github.com/sreeramsunkara/tap-deliver.git
