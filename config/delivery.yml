@@ -18,8 +18,8 @@ spec:
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
-          appliveview-sample/app-live-view-connector
-          appliveview-sample/app-live-view-appflavours
+          appliveview-sample/app-live-view-connector-boot
+          appliveview-sample/app-live-view-appflavours-boot
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
       labels:
@@ -31,13 +31,13 @@ spec:
         tanzu.app.live.view: "true"
         tanzu.app.live.view.application.actuator.port: "8081"
         tanzu.app.live.view.application.flavours: spring-boot
-        tanzu.app.live.view.application.name: demo
+        tanzu.app.live.view.application.name: tanzu-java-web-app
     spec:
       containers:
       - env:
         - name: JAVA_TOOL_OPTIONS
           value: -Dmanagement.endpoint.health.probes.add-additional-paths="true" -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.health.probes.enabled="true" -Dmanagement.server.port="8081" -Dserver.port="8080" -Dserver.shutdown.grace-period="24s"
-        image: tapdemoregistry.azurecr.io/tanzu/tanzu-supply-chain/tanzu-java-web-app-tap-dev@sha256:e128d571f085feeabfdf4d5b77d13495dc3bc56e0687a0737b7e9350e2442cfe
+        image: tapdemoregistry.azurecr.io/tanzu/tanzu-supply-chain/tanzu-java-web-app-tap-dev@sha256:703ed49212639ce2e97e4c63834890a568557846e023b1300481cfc14956a4a0
         name: workload
         ports:
         - containerPort: 8080
